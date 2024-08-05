@@ -183,7 +183,7 @@ const DonationPage: React.FC = () => {
         </div>
       </div>
       <footer className={styles.footer}>
-        <p className={styles.contactUs}>Contact us: <span className={styles.phoneNumber}>9381834747</span></p>
+        <p className={styles.contactUs}>Contact us: <span className={styles.phoneNumber}>9985232345</span></p>
       </footer>
       <ThankYouModal isOpen={isModalOpen} onRequestClose={closeModal} />
     </div>
