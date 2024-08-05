@@ -8,14 +8,12 @@ import ThankYouModal from './Components/Thank_you_model/ThankYouModal'; // Adjus
 interface FormData {
   name: string;
   phone: string;
-  email: string;
   amount: string;
 }
 
 interface FormErrors {
   name?: string;
   phone?: string;
-  email?: string;
   amount?: string;
 }
 
@@ -23,7 +21,6 @@ const DonationPage: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
-    email: '',
     amount: '',
   });
 
@@ -43,7 +40,6 @@ const DonationPage: React.FC = () => {
     let formErrors: FormErrors = {};
     if (!formData.name) formErrors.name = 'Name is required';
     if (!formData.phone) formErrors.phone = 'Phone number is required';
-    if (!formData.email) formErrors.email = 'Email is required';
     if (!formData.amount) {
       formErrors.amount = 'Amount is required';
     } else if (parseFloat(formData.amount) < 129) {
@@ -81,13 +77,11 @@ const DonationPage: React.FC = () => {
         setFormData({
           name: '',
           phone: '',
-          email: '',
           amount: '',
         });
       },
       prefill: {
         name: formData.name,
-        email: formData.email,
         contact: formData.phone,
       },
       notes: {
@@ -167,17 +161,7 @@ const DonationPage: React.FC = () => {
             />
             {errors.phone && <span className={styles.error}>{errors.phone}</span>}
             
-            <label htmlFor="email" className={styles.label}>Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              className={styles.input} 
-              value={formData.email} 
-              onChange={handleInputChange} 
-              required 
-            />
-            {errors.email && <span className={styles.error}>{errors.email}</span>}
+           
             
             <label htmlFor="amount" className={styles.label}>Amount</label>
             <input 
